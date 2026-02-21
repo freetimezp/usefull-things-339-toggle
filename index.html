@@ -9,22 +9,43 @@
     </head>
 
     <body>
-        <div class="box">
-            <div class="toggle"><span></span></div>
+        <canvas id="shader"></canvas>
+        <div class="letters" id="letters"></div>
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique fuga sit aperiam exercitationem
-                labore alias animi quasi quae cumque nostrum. Sequi quod incidunt quis delectus! Dolorum nisi ab,
-                voluptates nobis, ipsam est rem enim laudantium minus, facere molestiae blanditiis accusantium? Ab odio
-                amet cupiditate sint quia voluptates quas reprehenderit cumque.Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Similique fuga sit aperiam exercitationem labore alias animi quasi quae cumque
-                nostrum. Sequi quod incidunt quis delectus! Dolorum nisi ab, voluptates nobis, ipsam est rem enim
-                laudantium minus, facere molestiae blanditiis accusantium? Ab odio amet cupiditate sint quia voluptates
-                quas reprehenderit cumque.
-            </p>
+        <!-- TOGGLE -->
+        <div class="toggle-wrap">
+            <div class="toggle" id="toggle">
+                <div class="toggle-ball"></div>
+            </div>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <section class="hero">
+            <div class="blob" id="blob"></div>
+
+            <div class="card" id="card">
+                <div class="title">Liquid Toggle</div>
+                <div class="subtitle">Next-gen interaction system</div>
+
+                <div class="video-wrap" id="videoWrap">
+                    <video
+                        id="promoVideo"
+                        class="video"
+                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                        muted
+                        loop
+                        playsinline
+                    ></video>
+
+                    <div class="video-overlay" id="videoOverlay">
+                        <div class="play-btn" id="playBtn">▶</div>
+                    </div>
+                </div>
+
+                <div class="cta" id="cta">Engage</div>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
         <script src="./assets/js/main.js"></script>
     </body>
