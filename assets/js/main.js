@@ -1,4 +1,10 @@
+const video = document.getElementById("promoVideo");
+const overlay = document.getElementById("videoOverlay");
+const videoWrap = document.getElementById("videoWrap");
+
 let motionEnabled = false;
+let time = 0;
+let shaderRunning = false;
 
 /* ================= WEBGL SHADER ================= */
 
@@ -53,9 +59,6 @@ gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
 const timeLoc = gl.getUniformLocation(prog, "t");
 const resLoc = gl.getUniformLocation(prog, "r");
-
-let time = 0;
-let shaderRunning = false;
 
 function render() {
     if (shaderRunning) {
@@ -144,6 +147,9 @@ toggle.onclick = () => {
         blobAnim.pause();
         letterAnims.forEach((a) => a.pause());
 
+        overlay.classList.remove("hide");
+        video.pause();
+
         gsap.to(card, {
             scale: 1,
             rotateX: 0,
@@ -189,11 +195,9 @@ gsap.from(".card", { opacity: 0, y: 80, duration: 1.4, ease: "power4.out" });
 
 /* ================= VIDEO INTERACTION ================= */
 
-const video = document.getElementById("promoVideo");
-const overlay = document.getElementById("videoOverlay");
-const videoWrap = document.getElementById("videoWrap");
-
 overlay.addEventListener("click", () => {
+    if (!motionEnabled) return; // ⭐ lock when off
+
     video.play();
     overlay.classList.add("hide");
 
